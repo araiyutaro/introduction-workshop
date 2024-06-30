@@ -80,17 +80,17 @@ def pdf_to_text(pdf_content):
     return text.replace(' ', '').replace('　', '')
 
 
-def text_to_words(text):
-    nlp = spacy.load("ja_ginza")
-    chunk_size = 10000
-    words_list = []
-    for i in range(0, len(text), chunk_size):
-        chunk = text[i:i + chunk_size]
-        doc = nlp(chunk)
-        for token in doc:
-            if token.tag_ in ["名詞-普通名詞-一般"]:
-                words_list.append(token.lemma_)
-    return words_list
+# def text_to_words(text):
+#     nlp = spacy.load("ja_ginza")
+#     chunk_size = 10000
+#     words_list = []
+#     for i in range(0, len(text), chunk_size):
+#         chunk = text[i:i + chunk_size]
+#         doc = nlp(chunk)
+#         for token in doc:
+#             if token.tag_ in ["名詞-普通名詞-一般"]:
+#                 words_list.append(token.lemma_)
+#     return words_list
 
 
 def get_matched_list(words):
